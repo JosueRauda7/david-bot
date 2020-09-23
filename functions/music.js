@@ -1,10 +1,8 @@
 const config = require("../config.json");
-const { Client, MessageEmbed, Message } = require("discord.js");
+const { Client } = require("discord.js");
 const client = new Client();
 const ytdl = require("ytdl-core");
 const pathToFfmpeg = require("ffmpeg-static");
-
-servers = {};
 
 client.on("message", async (msg) => {
 	if (msg.author.bot) return;
