@@ -64,6 +64,12 @@ client.on("message", async (msg) => {
 			);
 			return;
 		}
+
+		// Stop music
+		if (comando === "stop") {
+			const connection = await msg.member.voice.channel.leave();
+			return;
+		}
 	}
 });
 
