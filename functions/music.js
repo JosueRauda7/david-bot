@@ -23,6 +23,7 @@ client.on("message", async (msg) => {
 						{ volume: 0.3 }
 					);
 				} catch (err) {
+					console.log("No me quiero ir Señor Stark");
 					console.log(err);
 				}
 				return;
