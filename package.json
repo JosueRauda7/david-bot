@@ -1,0 +1,26 @@
+{
+	"name": "david-bot",
+	"version": "1.0.0",
+	"description": "Es un bot para auxiliar un servidor en discord de Conexión David",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node index",
+		"dev": "nodemon index"
+	},
+	"keywords": [
+		"bot",
+		"discord",
+		"server"
+	],
+	"author": "Josue Rauda",
+	"license": "ISC",
+	"dependencies": {
+		"discord.js": "^12.3.1",
+		"ffmpeg-static": "^4.2.7",
+		"ytdl-core": "^3.2.2"
+	},
+	"devDependencies": {
+		"colors": "^1.4.0"
+	}
+}
