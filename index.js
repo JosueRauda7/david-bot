@@ -12,6 +12,7 @@ client.once("ready", () => {
 			.send("Hola");
 		return;
 	} catch (err) {
+		console.log(err);
 		return;
 	}
 });
