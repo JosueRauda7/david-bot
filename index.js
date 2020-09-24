@@ -1,7 +1,7 @@
 const { Client, MessageEmbed } = require("discord.js");
 const client = new Client();
 require("./functions/commands");
-// const { getVersiculo } = require("./functions/bible");
+const { getVersiculo } = require("./functions/bible");
 
 client.once("ready", () => {
 	console.log("ready");
