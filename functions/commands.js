@@ -18,7 +18,7 @@ client.on("message", (msg) => {
 						"- help: pedir ayuda.\n\n" +
 						"Disponibles en canal de voz:\n" +
 						"- music: poner música.\n" +
-						"- play [enlace de Youtube]: reproducir música con enlace de YouTube." +
+						"- play [enlace de Youtube]: reproducir música con enlace de YouTube.\n" +
 						"- stop: detener música."
 				)
 				.setColor("#eeeeee");
