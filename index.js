@@ -6,6 +6,14 @@ require("./functions/commands");
 
 client.once("ready", () => {
 	console.log("ready");
+	try {
+		client.channels
+			.find((channel) => channel.name === "versiculo-diario")
+			.send("Hola");
+		return;
+	} catch (err) {
+		return;
+	}
 });
 
 client.on("message", (msg) => {
