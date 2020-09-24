@@ -15,6 +15,8 @@ client.on("message", (msg) => {
 });
 
 client.on("presenceUpdate", (member) => {
+	console.log(member.status);
+	console.log(member.clientStatus);
 	if (member.status === "online") {
 		console.log("Cambio de estado");
 		// member.send(`Hola de nuevo, ${member.user} :wave:`);

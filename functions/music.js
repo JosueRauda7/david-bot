@@ -67,7 +67,7 @@ client.on("message", async (msg) => {
 
 		// Stop music
 		if (comando === "stop") {
-			const connection = await msg.member.voice.channel.leave();
+			msg.member.voice.channel.leave();
 			return;
 		}
 	}
