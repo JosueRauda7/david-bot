@@ -15,12 +15,14 @@ const getVersiculo = async () => {
 	const categoria = getCategoria();
 	const versiculos = await fetch(
 		encodeURI(
-			`https://api.biblia.com/v1/bible/search/rvr60.json?query=${categoria}&key=5ddfd67aaf8f6fce56e52f450eba3957`
+			`https://api.biblia.com/v1/bible/search/rvr60.json?mode=verse&query=${categoria}&key=${process.env.KEY_BIBLE}`
 		)
 	)
 		.then((res) => res.json())
 		.then((resData) => {
-			return resData.results;
+			const versiculos = resData.results;
+			const versiculo = versiculos[getRandomInt(0, versiculos.length)];
+			return versiculo;
 		})
 		.catch((err) => console.log(err));
 	return versiculos;

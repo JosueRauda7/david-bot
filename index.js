@@ -9,7 +9,15 @@ client.once("ready", () => {
 		const canal = client.channels.cache.find(
 			(channel) => channel.name === "versiculo-diario"
 		);
-		canal.send("hola");
+		getVersiculo()
+			.then((versiculo) => {
+				const mensaje = new MessageEmbed()
+					.setColor("#eee")
+					.setTitle(versiculo.title)
+					.setDescription(versiculo.preview);
+				canal.send(mensaje);
+			})
+			.catch((err) => console.log(err));
 		return;
 	} catch (err) {
 		console.log(err);
