@@ -1,15 +1,15 @@
-const config = require("./config.json");
 const { Client, MessageEmbed } = require("discord.js");
 const client = new Client();
-const colors = require("colors");
 require("./functions/commands");
+// const { getVersiculo } = require("./functions/bible");
 
 client.once("ready", () => {
 	console.log("ready");
 	try {
-		client.channels.cache
-			.find((channel) => channel.name === "versiculo-diario")
-			.send("Hola");
+		const canal = client.channels.cache.find(
+			(channel) => channel.name === "versiculo-diario"
+		);
+		canal.send("hola");
 		return;
 	} catch (err) {
 		console.log(err);
