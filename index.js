@@ -19,7 +19,7 @@ client.once("ready", () => {
 					canal.send(mensaje);
 				})
 				.catch((err) => console.log(err));
-		}, 10000);
+		}, 86400 * 1000);
 		return;
 	} catch (err) {
 		console.log(err);
