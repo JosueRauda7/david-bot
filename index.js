@@ -16,8 +16,10 @@ client.on("message", (msg) => {
 
 client.on("presenceUpdate", (member) => {
 	if (member.status === "online") {
-		member.send(`Hola de nuevo, ${member.user} :wave:`);
+		console.log("Cambio de estado");
+		// member.send(`Hola de nuevo, ${member.user} :wave:`);
 	}
+	return;
 });
 
 client.on("guildMemberAdd", (member) => {
