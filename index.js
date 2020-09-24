@@ -10,7 +10,7 @@ client.once("ready", () => {
 
 client.on("message", (msg) => {
 	if (msg.content.toLowerCase() === "hola") {
-		msg.channel.send(`Hola, ${msg.guild.owner} :wave:`);
+		msg.channel.send(`Hola, ${msg.member} :wave:`);
 	}
 });
 
@@ -18,6 +18,7 @@ client.on("presenceUpdate", (member) => {
 	if (member.status === "online") {
 		console.log("Cambio de estado");
 		// member.send(`Hola de nuevo, ${member.user} :wave:`);
+		return;
 	}
 	return;
 });
