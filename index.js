@@ -10,6 +10,10 @@ client.once("ready", () => {
 
 client.on("message", (msg) => {
 	if (msg.content.toLowerCase() === "hola") {
+		if (msg.member === null) {
+			msg.channel.send(`Hola, ${msg.client.user} :wave:`);
+			return;
+		}
 		msg.channel.send(`Hola, ${msg.member} :wave:`);
 	}
 });
