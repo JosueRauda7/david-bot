@@ -11,11 +11,13 @@ client.once("ready", () => {
 		);
 		getVersiculo()
 			.then((versiculo) => {
-				const mensaje = new MessageEmbed()
-					.setColor("#eee")
-					.setTitle(versiculo.title)
-					.setDescription(versiculo.preview);
-				canal.send(mensaje);
+				setInterval(() => {
+					const mensaje = new MessageEmbed()
+						.setColor("#eee")
+						.setTitle(versiculo.title)
+						.setDescription(versiculo.preview);
+					canal.send(mensaje);
+				}, 10000);
 			})
 			.catch((err) => console.log(err));
 		return;
