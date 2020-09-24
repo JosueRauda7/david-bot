@@ -7,7 +7,7 @@ require("./functions/commands");
 client.once("ready", () => {
 	console.log("ready");
 	try {
-		client.channels
+		client.channels.cache
 			.find((channel) => channel.name === "versiculo-diario")
 			.send("Hola");
 		return;
