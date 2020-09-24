@@ -14,6 +14,10 @@ client.on("message", (msg) => {
 	}
 });
 
+client.on("guildMemberAvailable", (member) => {
+	member.send(`Hola de nuevo, ${member.user} :wave:`);
+});
+
 client.on("guildMemberAdd", (member) => {
 	const channel = member.guild.channels.cache.find(
 		(ch) => ch.name === "general"
