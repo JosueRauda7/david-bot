@@ -15,10 +15,11 @@ client.on("message", (msg) => {
 });
 
 client.on("presenceUpdate", (member) => {
-	console.log(member.status);
-	console.log(member.clientStatus);
-	if (member.status === "online") {
+	// console.log(member.status);
+	// console.log(member.clientStatus);
+	if (member.status === "idle") {
 		console.log("Cambio de estado");
+		member.user.send(`Hola de nuevo, ${member.user} :wave:`);
 		// member.send(`Hola de nuevo, ${member.user} :wave:`);
 		return;
 	}
