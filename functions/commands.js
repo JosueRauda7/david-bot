@@ -15,13 +15,14 @@ client.on("message", (msg) => {
 				.setTitle("Lista de comandos")
 				.setDescription(
 					'Para usar comandos debes usar "!"\nEjemplo: !music\n\nLos comandos son:\n' +
-						"- help: pedir ayuda.\n\n" +
+						"- !help: pedir ayuda. :question:\n\n" +
 						"Disponibles en canal de voz:\n" +
-						"- music: poner música.\n" +
-						"- play [enlace de Youtube]: reproducir música con enlace de YouTube.\n" +
-						"- stop: detener música."
+						"- !music: poner música. :notes:\n" +
+						"- !play [enlace de Youtube]: reproducir música con enlace de YouTube.:headphones:\n" +
+						"- Ejemplo: !play https://www.youtube.com/watch?v=BEA0YMm4lcE\n" +
+						"- stop: detener música. :no_entry_sign:"
 				)
-				.setColor("#eeeeee");
+				.setColor("#ffd73e");
 			msg.channel.send(embedMessage);
 			return;
 		}

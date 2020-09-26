@@ -43,7 +43,7 @@ client.on("guildMemberAdd", (member) => {
 	);
 	if (!channel) return;
 	channel.send(
-		`Te damos la bienvenida, ${member} :partying_face:\n\nPuedes conocer los comandos usando: !help en el chat.`
+		` :confetti_ball: Te damos la bienvenida :tada:\n${member} :partying_face:\n\nPuedes conocer los comandos usando: !help en el chat.`
 	);
 });
 
