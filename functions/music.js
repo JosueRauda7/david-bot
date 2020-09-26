@@ -70,6 +70,7 @@ client.on("message", async (msg) => {
 					);
 					timing = setTimeout(function () {
 						msg.member.voice.channel.leave();
+						timing = null;
 					}, during * 1000);
 					return;
 				} catch (err) {
