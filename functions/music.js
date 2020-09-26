@@ -28,7 +28,6 @@ client.on("message", async (msg) => {
 					);
 				} catch (err) {
 					console.log("No me quiero ir Señor Stark");
-					console.log(err);
 				}
 				return;
 			}
@@ -40,13 +39,13 @@ client.on("message", async (msg) => {
 
 		// Play url de YT
 		if (comando === "play") {
-			const connection = await msg.member.voice.channel.join();
 			if (!mensaje[0]) {
 				msg.channel.send(
 					`${msg.author} tienes que enviar un enlace de YouTube para reproducir.`
 				);
 			}
 			if (msg.member.voice.channel) {
+				const connection = await msg.member.voice.channel.join();
 				try {
 					if (timing) {
 						clearTimeout(timing);
@@ -72,7 +71,6 @@ client.on("message", async (msg) => {
 					}, during * 1000);
 					return;
 				} catch (err) {
-					console.log(err);
 					msg.channel.send(
 						"Enlace de YouTube no ha sido introducido correctamente"
 					);
@@ -94,7 +92,6 @@ client.on("message", async (msg) => {
 				msg.member.voice.channel.leave();
 				return;
 			} catch (err) {
-				console.log(err);
 				return;
 			}
 		}
