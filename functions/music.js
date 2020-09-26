@@ -46,7 +46,7 @@ client.on("message", async (msg) => {
 				try {
 					const info = await await ytdl.getInfo(mensaje[0]);
 					const title = info.videoDetails.title;
-					const during = info.videoDetails.length_seconds;
+					const during = info.videoDetails.lengthSeconds;
 
 					const embedMsg = new MessageEmbed()
 						.setColor("#e7426e")
@@ -60,7 +60,7 @@ client.on("message", async (msg) => {
 						}),
 						{ volume: 0.3 }
 					);
-					const detener = setTimeout(() => {
+					const detener = setTimeout(function () {
 						msg.member.voice.channel.leave();
 					}, during * 1000);
 					return;
