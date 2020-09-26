@@ -54,17 +54,15 @@ client.on("message", async (msg) => {
 						.setDescription(title);
 
 					msg.channel.send(embedMsg);
-					setTimeout(
-						connection.play(
-							ytdl(mensaje[0], {
-								quality: "highestaudio",
-							}),
-							{ volume: 0.3 }
-						),
-						during * 1000
+					connection.play(
+						ytdl(mensaje[0], {
+							quality: "highestaudio",
+						}),
+						{ volume: 0.3 }
 					);
-					console.log("hola");
-					msg.member.voice.channel.leave();
+					setTimeout(() => {
+						msg.member.voice.channel.leave();
+					}, during * 1000);
 					return;
 				} catch (err) {
 					console.log(err);
