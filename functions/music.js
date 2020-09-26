@@ -10,17 +10,12 @@ client.on("message", async (msg) => {
 	if (msg.content.startsWith(config.prefix)) {
 		const mensaje = msg.content.slice(config.prefix.length).trim().split(/ +/);
 		const comando = mensaje.shift().toLowerCase();
-		let timing;
 
 		// Music
 		if (comando === "music") {
 			if (msg.member.voice.channel) {
 				const connection = await msg.member.voice.channel.join();
 				try {
-					if (timing) {
-						clearTimeout(timing);
-						timing = null;
-					}
 					connection.play(
 						ytdl("https://www.youtube.com/watch?v=jfX07JYnQYo", {
 							quality: "highestaudio",
@@ -48,10 +43,6 @@ client.on("message", async (msg) => {
 			if (msg.member.voice.channel) {
 				const connection = await msg.member.voice.channel.join();
 				try {
-					if (timing) {
-						clearTimeout(timing);
-						timing = null;
-					}
 					const info = await await ytdl.getInfo(mensaje[0]);
 					const title = info.videoDetails.title;
 					const during = info.videoDetails.lengthSeconds;
@@ -62,16 +53,16 @@ client.on("message", async (msg) => {
 						.setDescription(title);
 
 					msg.channel.send(embedMsg);
-					connection.play(
-						ytdl(mensaje[0], {
-							quality: "highestaudio",
-						}),
-						{ volume: 0.3 }
-					);
-					timing = setTimeout(function () {
-						msg.member.voice.channel.leave();
-						timing = null;
-					}, during * 1000);
+					connection
+						.play(
+							ytdl(mensaje[0], {
+								quality: "highestaudio",
+							}),
+							{ volume: 0.3 }
+						)
+						.on("finish", () => {
+							msg.member.voice.channel.leave();
+						});
 					return;
 				} catch (err) {
 					msg.channel.send(
@@ -89,10 +80,6 @@ client.on("message", async (msg) => {
 		// Stop music
 		if (comando === "stop") {
 			try {
-				if (timing) {
-					clearTimeout(timing);
-					timing = null;
-				}
 				msg.member.voice.channel.leave();
 				return;
 			} catch (err) {
