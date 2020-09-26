@@ -64,8 +64,10 @@ client.on("message", async (msg) => {
 						during * 1000
 					);
 					console.log("hola");
+					msg.member.voice.channel.leave();
 					return;
 				} catch (err) {
+					console.log(err);
 					msg.channel.send(
 						"Enlace de YouTube no ha sido introducido correctamente"
 					);
