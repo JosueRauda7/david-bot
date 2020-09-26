@@ -54,18 +54,17 @@ client.on("message", async (msg) => {
 						.setDescription(title);
 
 					msg.channel.send(embedMsg);
-					connection.play(
-						ytdl(mensaje[0], {
-							quality: "highestaudio",
-						}),
-						{ volume: 0.3 }
-					);
 					setTimeout(() => {
-						msg.member.voice.channel.leave();
+						connection.play(
+							ytdl(mensaje[0], {
+								quality: "highestaudio",
+							}),
+							{ volume: 0.3 }
+						);
 					}, during * 1000);
+					msg.member.voice.channel.leave();
 					return;
 				} catch (err) {
-					console.log(err);
 					msg.channel.send(
 						"Enlace de YouTube no ha sido introducido correctamente"
 					);
