@@ -45,8 +45,8 @@ client.on("message", async (msg) => {
 			if (msg.member.voice.channel) {
 				try {
 					const info = await await ytdl.getInfo(mensaje[0]);
-					const title = info.title;
-					const during = info.length_seconds;
+					const title = info.videoDetails.title;
+					const during = info.videoDetails.length_seconds;
 
 					const embedMsg = new MessageEmbed()
 						.setColor("#e7426e")
@@ -63,6 +63,7 @@ client.on("message", async (msg) => {
 						),
 						during * 1000
 					);
+					console.log("hola");
 					return;
 				} catch (err) {
 					msg.channel.send(
