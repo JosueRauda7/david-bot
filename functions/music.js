@@ -65,6 +65,7 @@ client.on("message", async (msg) => {
 					}, during * 1000);
 					return;
 				} catch (err) {
+					console.log(err);
 					msg.channel.send(
 						"Enlace de YouTube no ha sido introducido correctamente"
 					);
