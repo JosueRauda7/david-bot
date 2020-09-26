@@ -19,8 +19,8 @@ client.on("message", (msg) => {
 						"Disponibles en canal de voz:\n" +
 						"- !music: poner música. :notes:\n" +
 						"- !play [enlace de Youtube]: reproducir música con enlace de YouTube.:headphones:\n" +
-						"- Ejemplo: !play https://www.youtube.com/watch?v=BEA0YMm4lcE\n" +
-						"- stop: detener música. :no_entry_sign:"
+						"\tEjemplo: !play https://www.youtube.com/watch?v=BEA0YMm4lcE\n" +
+						"- !stop: detener música. :no_entry_sign:"
 				)
 				.setColor("#ffd73e");
 			msg.channel.send(embedMessage);
