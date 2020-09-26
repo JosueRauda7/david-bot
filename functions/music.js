@@ -1,5 +1,5 @@
 const config = require("../config.json");
-const { Client } = require("discord.js");
+const { Client, MessageEmbed } = require("discord.js");
 const client = new Client();
 const ytdl = require("ytdl-core");
 const pathToFfmpeg = require("ffmpeg-static");
@@ -44,13 +44,16 @@ client.on("message", async (msg) => {
 			}
 			if (msg.member.voice.channel) {
 				try {
-					const info = await await ytdl.getInfo(
-						"https://www.youtube.com/watch?v=jfX07JYnQYo"
-					);
+					const info = await await ytdl.getInfo(mensaje[0]);
 					const title = info.title;
 					const during = info.length_seconds;
 
-					msg.channel.send(`Reproduciendo: ${title}`);
+					const embedMsg = new MessageEmbed()
+						.setColor("#e7426e")
+						.setTitle("REPRODUCIENDO :radio: :sound:")
+						.setDescription(title);
+
+					msg.channel.send(embedMsg);
 					setTimeout(
 						connection.play(
 							ytdl(mensaje[0], {
