@@ -43,13 +43,22 @@ client.on("message", async (msg) => {
 				);
 			}
 			if (msg.member.voice.channel) {
-				msg.channel.send(`Reproduciendo...`);
 				try {
-					connection.play(
-						ytdl(mensaje[0], {
-							quality: "highestaudio",
-						}),
-						{ volume: 0.3 }
+					const info = await await ytdl.getInfo(
+						"https://www.youtube.com/watch?v=jfX07JYnQYo"
+					);
+					const title = info.title;
+					const during = info.length_seconds;
+
+					msg.channel.send(`Reproduciendo: ${title}`);
+					setTimeout(
+						connection.play(
+							ytdl(mensaje[0], {
+								quality: "highestaudio",
+							}),
+							{ volume: 0.3 }
+						),
+						during * 1000
 					);
 					return;
 				} catch (err) {
