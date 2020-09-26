@@ -19,6 +19,7 @@ client.on("message", async (msg) => {
 				try {
 					if (timing) {
 						clearTimeout(timing);
+						timing = null;
 					}
 					connection.play(
 						ytdl("https://www.youtube.com/watch?v=jfX07JYnQYo", {
@@ -49,6 +50,7 @@ client.on("message", async (msg) => {
 				try {
 					if (timing) {
 						clearTimeout(timing);
+						timing = null;
 					}
 					const info = await await ytdl.getInfo(mensaje[0]);
 					const title = info.videoDetails.title;
@@ -88,6 +90,7 @@ client.on("message", async (msg) => {
 			try {
 				if (timing) {
 					clearTimeout(timing);
+					timing = null;
 				}
 				msg.member.voice.channel.leave();
 				return;
