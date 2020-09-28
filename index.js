@@ -6,19 +6,21 @@ const { getVersiculo } = require("./functions/bible");
 client.once("ready", () => {
 	console.log("ready");
 	try {
-		const canal = client.channels.cache.find(
+		const canales = client.channels.cache.filter(
 			(channel) => channel.name === "versiculo-diario"
 		);
 		setInterval(() => {
-			getVersiculo()
-				.then((versiculo) => {
-					const mensaje = new MessageEmbed()
-						.setColor("#eee")
-						.setTitle(versiculo.title)
-						.setDescription(versiculo.preview);
-					canal.send(mensaje);
-				})
-				.catch((err) => console.log(err));
+			canales.map((canal) => {
+				getVersiculo()
+					.then((versiculo) => {
+						const mensaje = new MessageEmbed()
+							.setColor("#eee")
+							.setTitle(versiculo.title)
+							.setDescription(versiculo.text);
+						canal.send(mensaje);
+					})
+					.catch((err) => console.log(err));
+			});
 		}, 86400 * 1000);
 		return;
 	} catch (err) {
