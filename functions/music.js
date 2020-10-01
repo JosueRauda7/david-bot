@@ -14,8 +14,8 @@ client.on("message", async (msg) => {
 		// Music
 		if (comando === "music") {
 			if (msg.member.voice.channel) {
+				const connection = await msg.member.voice.channel.join();
 				try {
-					const connection = await msg.member.voice.channel.join();
 					connection.play(
 						ytdl("https://www.youtube.com/watch?v=jfX07JYnQYo", {
 							quality: "highestaudio",
