@@ -14,8 +14,8 @@ client.on("message", async (msg) => {
 		// Music
 		if (comando === "music") {
 			if (msg.member.voice.channel) {
-				const connection = await msg.member.voice.channel.join();
 				try {
+					const connection = await msg.member.voice.channel.join();
 					connection.play(
 						ytdl("https://www.youtube.com/watch?v=jfX07JYnQYo", {
 							quality: "highestaudio",
@@ -23,7 +23,7 @@ client.on("message", async (msg) => {
 						{ volume: 0.3 }
 					);
 				} catch (err) {
-					console.log("No me quiero ir Señor Stark");
+					console.log(err);
 				}
 				return;
 			}
@@ -65,6 +65,7 @@ client.on("message", async (msg) => {
 						});
 					return;
 				} catch (err) {
+					console.log(err);
 					msg.channel.send(
 						"Enlace de YouTube no ha sido introducido correctamente"
 					);
@@ -83,6 +84,7 @@ client.on("message", async (msg) => {
 				msg.member.voice.channel.leave();
 				return;
 			} catch (err) {
+				console.log(err);
 				return;
 			}
 		}
