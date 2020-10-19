@@ -45,7 +45,6 @@ client.on("message", async (msg) => {
 				try {
 					const info = await await ytdl.getInfo(mensaje[0]);
 					const title = info.videoDetails.title;
-					const during = info.videoDetails.lengthSeconds;
 
 					const embedMsg = new MessageEmbed()
 						.setColor("#e7426e")
