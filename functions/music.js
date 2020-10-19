@@ -27,10 +27,12 @@ client.on("message", async (msg) => {
 				}
 				return;
 			}
+			else{
 			msg.channel.send(
 				`${msg.author} tienes que estar en un canal de voz para reproducir música :headphones:`
 			);
 			return;
+			}
 		}
 
 		// Play url de YT
@@ -39,6 +41,7 @@ client.on("message", async (msg) => {
 				msg.channel.send(
 					`${msg.author} tienes que enviar un enlace de YouTube para reproducir.`
 				);
+				return;
 			}
 			if (msg.member.voice.channel) {
 				const connection = await msg.member.voice.channel.join();
@@ -71,10 +74,12 @@ client.on("message", async (msg) => {
 					return;
 				}
 			}
+			else{
 			msg.channel.send(
 				`${msg.author} tienes que estar en un canal de voz para reproducir música :headphones:`
 			);
 			return;
+			}
 		}
 
 		// Stop music
